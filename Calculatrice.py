@@ -56,8 +56,19 @@ class Calcul(Calculatrice):
         if p < 2:
             return False
         for i in range(2,int(p**0.5)+1): #Fondé sur le Th qui dit que si aucun nombre entre 2 et racine de p divise p, alors il n'a pas de nombres + grands qui le divisent
-            if p%i == 0
+            if p%i == 0:
                 return False
         return True
 
-    def
+    def ln(self, x):
+        if x <= 0:
+            return "La fonction n'est pas définie pour cette valeur"
+        elif x == 1:
+            return 0
+        else:
+            y = (x-1)/(x+1)
+            s=0
+            for k in range (0,100):
+                s += y**(2*k + 1) / (2*k + 1)
+            return 2*s
+
