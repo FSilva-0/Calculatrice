@@ -25,16 +25,21 @@ class Calculatrice():
 
 
 class Calcul(Calculatrice):
+
     def addition(self,a,b):
-        return a+b+1
+        return a+b
+
     def subtraction(self,a,b):
         return a-b
+
     def multiplication(self,a,b):
         return a*b
+
     def quotient(self,a,b):
         if b == 0:
             return "On ne peut diviser par 0 gros con"
         return a/b
+
     def puissance(self,a,b):
         if (a==0) and (b==0):
             return "Pas possible"
@@ -42,6 +47,7 @@ class Calcul(Calculatrice):
             return 1
         else:
             return a**b
+
     def fibonacci1(self,n):
         if n < 2:
             return n
@@ -79,5 +85,6 @@ class Calcul(Calculatrice):
             return 2*s
 
     def e(self,x):
-        return ((1.000000000000000000001)**100000000000000000000)**x
+        return ((1+(1/1000000))**1000000)**x
+
 
