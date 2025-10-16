@@ -1,6 +1,6 @@
 class Calculatrice():
     def addition(self,a,b):
-        return
+        return   # sacre modification
 
     def subtraction(self,a,b):
         return
