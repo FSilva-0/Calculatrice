@@ -26,7 +26,7 @@ class Calculatrice():
 
 class Calcul(Calculatrice):
     def addition(self,a,b):
-        return a+b
+        return a+b+1
     def subtraction(self,a,b):
         return a-b
     def multiplication(self,a,b):
