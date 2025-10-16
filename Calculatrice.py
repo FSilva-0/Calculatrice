@@ -42,7 +42,7 @@ class Calcul(Calculatrice):
             return 1
         else:
             return a**b
-    def fibonacci(self,n):
+    def fibonacci1(self,n):
         if n < 2:
             return n
         a = 0
@@ -52,6 +52,12 @@ class Calcul(Calculatrice):
             a = b
             b = c
         return b
+
+    def fibonacci2(self,n):
+        if n==0:
+            return 0
+        return self.fibonacci2(n-1)+self.fibonacci2(n-2)
+
     def prime(self,p):
         if p < 2:
             return False
@@ -71,4 +77,7 @@ class Calcul(Calculatrice):
             for k in range (0,100):
                 s += y**(2*k + 1) / (2*k + 1)
             return 2*s
+
+    def e(self,x):
+        return ((1.000000000000000000001)**100000000000000000000)**x
 
