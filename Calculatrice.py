@@ -33,7 +33,10 @@ class Calcul(Calculatrice):
         return a-b
 
     def multiplication(self,a,b):
-        return a*b
+        m=0
+        for _ in range(a):
+           s+=b
+        return m
 
     def quotient(self,a,b):
         if b == 0:
@@ -46,7 +49,10 @@ class Calcul(Calculatrice):
         elif b == 0:
             return 1
         else:
-            return a**b
+            p=1
+            for _ in range(b):
+                p = self.multiplication(p,a)
+            return p
 
     def fibonacci1(self,n):
         if n < 2:
@@ -85,6 +91,7 @@ class Calcul(Calculatrice):
             return 2*s
 
     def e(self,x):
-        return ((1+(1/1000000))**1000000)**x
+        return ((1+(1/100000000))**100000000)**x
 
-
+Calc = Calcul()
+print(Calc.e(1))
