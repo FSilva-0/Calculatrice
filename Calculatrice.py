@@ -66,8 +66,8 @@ class Calcul(Calculatrice):
         return b
 
     def fibonacci2(self,n):
-        if n==0:
-            return 0
+        if n<=1:
+            return 1
         return self.fibonacci2(n-1)+self.fibonacci2(n-2)
 
     def prime(self,p):
@@ -90,8 +90,5 @@ class Calcul(Calculatrice):
                 s += y**(2*k + 1) / (2*k + 1)
             return 2*s
 
-    def e(self,x):
+    def exp(self,x):
         return ((1+(1/100000000))**100000000)**x
-
-Calc = Calcul()
-print(Calc.e(1))
