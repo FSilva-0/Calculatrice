@@ -1,11 +1,10 @@
 import tkinter as tk
 import Calculatrice
 
-
 class Graphique():
     def __init__(self):
         self.g = tk.Tk()
-        self.g.geometry("400x500")
+        self.g.geometry("450x500")
         self.g.title("Calculatrice")
         self.boutons = [('7', 1, 0), ('8', 1, 1), ('9', 1, 2), ('/', 1, 3), ('fib1', 1, 4),
                         ('4', 2, 0), ('5', 2, 1), ('6', 2, 2), ('*', 2, 3), ('fib2', 2, 4),
@@ -26,13 +25,25 @@ class Graphique():
         self.expression = ""
         self.entree_var = tk.StringVar()
         self.entree = tk.Entry(self.g, textvariable=self.entree_var, font=("Arial", 20), justify='right')
-        self.entree.grid(row=0, column=0, columnspan=4, ipadx=8, ipady=8, pady=10)
+        self.entree.grid(row=0, column=0, columnspan=5, ipadx=8, ipady=8, pady=10)
 
     def calculer(self):
         Calcul = Calculatrice.Calcul()
         resultat = 0
         try:
-            if '+' in self.expression:
+            if 'fib1' in self.expression:
+                n = int(self.expression.split('fib1', 1)[1].strip())
+                resultat = Calcul.fibonacci1(n)
+            elif 'fib2' in self.expression:
+                n = int(self.expression.split('fib2', 1)[1].strip())
+                resultat = Calcul.fibonacci2(n)
+            elif 'exp' in self.expression:
+                x = float(self.expression.split('exp', 1)[1].strip())
+                resultat = Calcul.exp(x)
+            elif 'ln' in self.expression:
+                x = float(self.expression.split('ln', 1)[1].strip())
+                resultat = Calcul.ln(x)
+            elif '+' in self.expression:
                 a, b = map(float, self.expression.split('+'))
                 resultat = Calcul.addition(a, b)
             elif '-' in self.expression:
@@ -47,21 +58,9 @@ class Graphique():
             elif '^' in self.expression:
                 a, b = map(int, self.expression.split('^'))
                 resultat = Calcul.puissance(a, b)
-            elif 'fib1' in self.expression:
-                n = int(self.expression.split('fib1', 1)[1].strip())
-                resultat = Calcul.fibonacci1(n)
-            elif 'fib2' in self.expression:
-                n = int(self.expression.split('fib2', 1)[1].strip())
-                resultat = Calcul.fibonacci2(n)
             elif 'pr' in self.expression:
                 p = int(self.expression.split('pr', 1)[1].strip())
                 resultat = Calcul.prime(p)
-            elif 'exp' in self.expression:
-                x = float(self.expression.split('exp', 1)[1].strip())
-                resultat = Calcul.exp(x)
-            elif 'ln' in self.expression:
-                x = float(self.expression.split('ln', 1)[1].strip())
-                resultat = Calcul.ln(x)
             self.expression = str(resultat)
             self.entree_var.set(self.expression)
         except:
