@@ -35,12 +35,12 @@ class Calcul(Calculatrice):
     def multiplication(self,a,b):
         m=0
         for _ in range(a):
-           s+=b
+           m+=b
         return m
 
     def quotient(self,a,b):
         if b == 0:
-            return "On ne peut diviser par 0 gros con"
+            return "On ne peut diviser par 0 "
         return a/b
 
     def puissance(self,a,b):
