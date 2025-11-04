@@ -33,31 +33,31 @@ class Graphique():
         try:
             if 'fib1' in self.expression:
                 n = int(self.expression.split('fib1', 1)[1].strip())
-                resultat = Calcul.fibonacci1(n)
+                resultat += Calcul.fibonacci1(n)
             elif 'fib2' in self.expression:
                 n = int(self.expression.split('fib2', 1)[1].strip())
-                resultat = Calcul.fibonacci2(n)
+                resultat += Calcul.fibonacci2(n)
             elif 'exp' in self.expression:
                 x = float(self.expression.split('exp', 1)[1].strip())
-                resultat = Calcul.exp(x)
+                resultat += Calcul.exp(x)
             elif 'ln' in self.expression:
                 x = float(self.expression.split('ln', 1)[1].strip())
-                resultat = Calcul.ln(x)
+                resultat += Calcul.ln(x)
             elif '+' in self.expression:
                 a, b = map(float, self.expression.split('+'))
-                resultat = Calcul.addition(a, b)
+                resultat += Calcul.addition(a, b)
             elif '-' in self.expression:
                 a, b = map(float, self.expression.split('-'))
-                resultat = Calcul.subtraction(a, b)
+                resultat += Calcul.subtraction(a, b)
             elif '*' in self.expression:
                 a, b = map(int, self.expression.split('*'))
-                resultat = Calcul.multiplication(a, b)
+                resultat += Calcul.multiplication(a, b)
             elif '/' in self.expression:
                 a, b = map(float, self.expression.split('/'))
-                resultat = Calcul.quotient(a, b)
+                resultat += Calcul.quotient(a, b)
             elif '^' in self.expression:
                 a, b = map(int, self.expression.split('^'))
-                resultat = Calcul.puissance(a, b)
+                resultat += Calcul.puissance(a, b)
             elif 'pr' in self.expression:
                 p = int(self.expression.split('pr', 1)[1].strip())
                 resultat = Calcul.prime(p)
