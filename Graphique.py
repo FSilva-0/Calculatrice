@@ -54,7 +54,7 @@ class Graphique():
                 resultat += Calcul.multiplication(a, b)
             elif '/' in self.expression:
                 a, b = map(float, self.expression.split('/'))
-                resultat += Calcul.quotient(a, b)
+                resultat += Calcul.division(a, b)
             elif '^' in self.expression:
                 a, b = map(int, self.expression.split('^'))
                 resultat += Calcul.puissance(a, b)

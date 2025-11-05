@@ -8,9 +8,9 @@ class Calculatrice():
     def multiplication(self,a,b):
         return
 
-    def quotient(self,a,b):
+    def division(self,a,b):
         if b == 0:
-            print("On ne peut diviser par 0 gros con")
+            print("On ne peut diviser par 0")
 
         return
 
@@ -33,15 +33,26 @@ class Calcul(Calculatrice):
         return a-b
 
     def multiplication(self,a,b):
-        m=0
-        for _ in range(a):
-           m+=b
-        return m
+        negatif = (a < 0) ^ (b < 0)
+        a, b = abs(a), abs(b)
 
-    def quotient(self,a,b):
+        m = 0
+        for _ in range(a):
+            m = self.addition(m, b)
+        return -m if negatif else m
+
+    def division(self,a,b):
         if b == 0:
             return "On ne peut diviser par 0 "
-        return a/b
+        negatif = (a<0) ^ (b<0)
+        a,b = abs(a), abs(b)
+
+        quotient = 0
+        while a>=b:
+            a = self.subtraction(a,b)
+            quotient = self.addition(quotient,1)
+
+        return -quotient if negatif else quotient
 
     def puissance(self,a,b):
         if (a==0) and (b==0):
